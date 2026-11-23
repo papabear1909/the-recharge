@@ -1,0 +1,12 @@
+# Drag-and-drop package, rebuilt when needed
+*.zip
+
+# Python and Node leftovers from the tools
+__pycache__/
+*.pyc
+node_modules/
+
+# Operating system clutter
+.DS_Store
+Thumbs.db
+desktop.ini

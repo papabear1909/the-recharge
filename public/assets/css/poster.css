@@ -1,0 +1,316 @@
+/* Poster edition: the colours and print details of the conference poster, layered over site.css.
+   Paper background, orange-to-red title, stacked THE, navy and red theme badge, purple ribbon
+   with the church logo, torn paper edges, and red script for Guest and Host. */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-900.woff2") format("woff2");
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-800.woff2") format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Arizonia";
+  src: url("../fonts/arizonia-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --fp: "Montserrat", "Arial Black", sans-serif;
+  --fs: "Arizonia", cursive;
+  --paper: #efeeeb;
+  --ink: #14161f;
+  --ink-soft: #4a4f63;
+  --pnavy: #1d2b5b;
+  --pnavy-deep: #141e44;
+  --pred: #c8141a;
+  --live-red: #ff3b30;
+  --porange: #f39a1e;
+  --deep: #8e1414;
+  --yellow: #f9c80e;
+  --ribbon: #7a3d9e;
+  --grad: linear-gradient(180deg, #da6409 0%, #d63e0d 55%, #c8141a 100%);
+}
+
+body { background: var(--paper) url("../img/paper.webp"); color: var(--ink); }
+
+/* ---------- top bar: white strip, purple ribbon holding the church logo ---------- */
+.topbar { background: #fff; color: var(--pnavy); box-shadow: 0 1px 0 rgba(20, 22, 31, .12); }
+.lang { border-color: rgba(29, 43, 91, .35); }
+.lang button { color: var(--pnavy); }
+.lang button[aria-pressed="true"] { background: var(--pnavy); color: #fff; }
+.menu-btn { border-color: rgba(29, 43, 91, .35); color: var(--pnavy); }
+.wordmark { font-family: var(--fp); font-weight: 900; letter-spacing: -.01em; }
+.church-badge { width: 40px; height: 40px; }
+.church-badge img { width: 100%; height: 100%; }
+.church-badge + .brand { border-left-color: rgba(29, 43, 91, .2); }
+
+.ticker { background: var(--pnavy); border-color: transparent; }
+body[data-state="SESSION_ONGOING"] .ticker { background: var(--pred); }
+.ticker-run { font-family: var(--fp); font-weight: 900; font-size: 1.9rem; letter-spacing: -.01em; }
+
+/* ---------- landing ---------- */
+.console { background: transparent; color: var(--ink); }
+.console-year { color: rgba(29, 43, 91, .05); }
+.kicker { display: flex; flex-direction: column; gap: 8px; margin: 4px 0 16px; }
+.kicker-org { font: 900 clamp(1rem, 4.6vw, 1.7rem)/1.05 var(--fp); text-transform: uppercase; max-width: 17em; }
+.kicker-welcome { font: 800 clamp(.75rem, 3vw, 1.05rem)/1 var(--fp); letter-spacing: .5em; text-transform: uppercase; }
+.console-title { display: flex; align-items: center; gap: .08em; font-family: var(--fp); font-weight: 900; line-height: .86; }
+.ct-the { display: flex; flex-direction: column; font-size: clamp(1.15rem, 5.3vw, 2.9rem); line-height: .9; letter-spacing: 0; margin: 0; }
+.ct-big { font-size: clamp(3rem, 14.6vw, 8.6rem); letter-spacing: -.035em; margin: 0; padding-right: .04em; }
+.ct-the span, .ct-big { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.console-sub { margin-top: 12px; }
+.console-sub span { font: 800 clamp(1rem, 4.8vw, 2rem)/1 var(--fp); letter-spacing: .2em; text-transform: uppercase; color: var(--ink); }
+.theme-badge { display: inline-flex; align-items: stretch; margin-top: 16px; max-width: 100%; }
+.tb-label {
+  display: flex; align-items: center; padding: 8px 14px;
+  background: var(--pnavy); color: var(--yellow); box-shadow: inset 0 0 0 3px var(--pnavy), inset 0 0 0 5px rgba(255, 255, 255, .85);
+  font: 900 clamp(1.05rem, 4.6vw, 2rem)/1 var(--fp); text-transform: uppercase;
+}
+.tb-body { display: flex; flex-direction: column; justify-content: center; padding: 6px 14px; background: var(--deep); color: #fff; text-align: center; }
+.tb-line { font: 800 clamp(.85rem, 3.7vw, 1.5rem)/1.1 var(--fp); text-transform: uppercase; }
+.tb-ref { font: 800 clamp(.8rem, 3.2vw, 1.2rem)/1.25 var(--fp); }
+
+.facts { grid-template-columns: 1fr; border-top: 3px solid var(--pnavy); }
+.fact--dates { position: relative; padding-left: 34px; border-bottom-color: rgba(29, 43, 91, .2); }
+.fact-big { font-family: var(--fp); font-weight: 900; letter-spacing: -.015em; color: var(--pnavy); font-size: clamp(1.4rem, 6.2vw, 2.2rem); }
+.fact--dates .fact-big { color: var(--pred); font-size: clamp(1.5rem, 6.6vw, 2.6rem); }
+.fact-small { color: var(--ink-soft); }
+.fact--time + .fact--time { border-left: 0; padding-left: 0; border-top: 1px solid rgba(29, 43, 91, .2); }
+.pin { width: 24px; height: 32px; flex: none; }
+.pin path { fill: var(--pred); }
+.pin circle { fill: #fff; }
+.fact--dates .pin { position: absolute; left: 0; top: 14px; }
+
+.host-line { color: var(--ink); }
+.host-pair { display: flex; align-items: baseline; gap: 10px; }
+.script { font: 400 2.2rem/1 var(--fs); color: var(--pred); text-transform: none; letter-spacing: 0; }
+.js-host-name { font: 900 1.2rem/1 var(--fp); }
+.host-org { color: var(--ink-soft); }
+.test-flag { border-color: var(--pnavy); }
+
+/* the live panel is the navy THEME box of the poster, with an orange print offset */
+.live { background: var(--pnavy); color: #fff; padding: 18px; box-shadow: 10px 10px 0 0 var(--porange); margin-right: 10px; }
+.live::before { display: none; }
+.charge-fill { fill: var(--porange); }
+.charge-bar, .sand, .stream rect { fill: var(--live-red); }
+.cd-u, .cd-left { color: var(--yellow); }
+.state-word { font-family: var(--fp); font-weight: 900; letter-spacing: -.02em; font-size: clamp(1.7rem, 8vw, 3.2rem); overflow-wrap: normal; line-height: .95; }
+.live-meter, .mini-meter { background: rgba(255, 255, 255, .18); }
+.live-meter span, .mini-meter span { background: var(--porange); }
+.closing-verse p { color: var(--ink); }
+.closing-verse cite { color: var(--pred); font-family: var(--fp); font-weight: 900; }
+.closing-actions .btn--line { color: var(--pnavy); }
+
+/* ---------- torn paper edges between sections ---------- */
+.tear {
+  position: absolute; left: 0; right: 0; top: -36px; height: 40px; z-index: 2; pointer-events: none;
+  background: var(--tear, #fff);
+  -webkit-mask: url("../img/tear.svg") 0 0 / 1200px 100% repeat-x;
+  mask: url("../img/tear.svg") 0 0 / 1200px 100% repeat-x;
+}
+.speakers, .inquiries { position: relative; }
+.programme { overflow: visible; background: linear-gradient(180deg, #fff 0%, #f6f4f0 100%); --tear: #fff; }
+.prog-bg { overflow: clip; }
+.speakers { --tear: var(--plum-900); }
+.theme { --tear: var(--paper); background: var(--paper) url("../img/paper.webp"); }
+.inquiries { --tear: var(--pnavy); }
+
+/* ---------- programme ---------- */
+.section-title { font-family: var(--fp); font-weight: 900; letter-spacing: -.035em; font-size: clamp(2.6rem, 12.2vw, 9.6rem); line-height: .9; margin-left: -.02em; }
+.programme .section-title, .venue .section-title { color: var(--pnavy); }
+.day-tabs { border-bottom-color: var(--pnavy); }
+.day-tab { color: var(--pnavy); }
+.day-tab b { font-family: var(--fp); font-weight: 900; }
+.day-tab[aria-current="true"] { background: var(--pnavy); }
+.day-group { border-top-color: var(--pnavy); }
+.day-group:nth-child(even) { background: rgba(29, 43, 91, .05); }
+.day-group.is-today { border-top-color: var(--pred); }
+.dd-num, .dd-wd { font-family: var(--fp); font-weight: 900; color: var(--pnavy); letter-spacing: -.03em; }
+.dd-today { font-family: var(--fp); font-weight: 900; background: var(--pred); }
+.row-n { color: var(--pred); }
+.row-title { font-family: var(--fp); font-weight: 800; letter-spacing: -.01em; color: var(--pnavy); font-size: 1.35rem; }
+.row-time { color: var(--ink); }
+.row.is-now { background: var(--pnavy); border-color: var(--pnavy); }
+.row.is-now .row-flag::before { background: var(--live-red); }
+.row-arrow { color: var(--pnavy); }
+.cal-btn, .programme-foot .btn { color: var(--pnavy); }
+.prog-num { -webkit-text-stroke-color: rgba(29, 43, 91, .13); font-family: var(--fp); font-weight: 900; }
+.prog-ring { stroke: rgba(200, 20, 26, .16); }
+.mini--rail { background: var(--pnavy); }
+.mini--rail .mu, .mini--rail .mini-line, .mini--footer .mu, .mini--footer .mini-line { color: var(--yellow); }
+.mini-word { font-family: var(--fp); font-weight: 900; letter-spacing: -.01em; }
+
+/* ---------- speakers: card plum stays so the cards blend; red-orange script for Guest and Host ---------- */
+.speakers .section-title { color: #fff; }
+.name-role { display: block; margin: 0 0 2px; font: 400 clamp(1.6rem, 6vw, 2.6rem)/1 var(--fs); color: var(--porange); text-transform: none; letter-spacing: 0; }
+.name-role::before { display: none; }
+
+/* ---------- theme: SONS takes the poster's orange-to-red ---------- */
+.theme { color: var(--pnavy); }
+.w-from { color: var(--pnavy); }
+.lt-up { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.theme-wash { background: #fff4e6; }
+.theme-line { font-family: var(--fp); font-weight: 900; letter-spacing: -.01em; color: var(--pnavy); }
+.verse p { color: var(--ink); }
+.verse cite { font-family: var(--fp); font-weight: 900; color: var(--pred); letter-spacing: -.02em; }
+.verse-version { color: var(--ink-soft); }
+
+/* ---------- venue ---------- */
+.venue { border-top: 0; }
+.venue::before { background: rgba(122, 61, 158, .07); }
+.pin--venue { width: 34px; height: 44px; margin-bottom: 10px; }
+.address { color: var(--pnavy); }
+.venue-maps-name { color: var(--ink-soft); }
+.venue-actions .btn--quiet, .copied { color: var(--pnavy); }
+.road { fill: #e2dfe8; }
+.landmark, .church { fill: var(--pnavy); }
+.map-label, .map-dim { fill: var(--pnavy); }
+.dim { stroke: var(--pnavy); }
+.map-note { fill: var(--ink-soft); }
+
+/* ---------- inquiries: the poster's navy ---------- */
+.inquiries { background: var(--pnavy); color: #fff; }
+.inquiries .section-title, .follow-title, .follow-link { color: #fff; }
+.follow-link { border-bottom-color: rgba(255, 255, 255, .6); font-family: var(--fp); font-weight: 900; font-size: 2rem; letter-spacing: -.02em; }
+.big-action--wa { background: #fff; color: var(--pnavy); }
+.big-action--wa:hover { background: #e9ecf5; }
+.ba-label { font-family: var(--fp); font-weight: 900; letter-spacing: -.02em; font-size: 1.9rem; }
+.follow-title { font-family: var(--fp); font-weight: 900; }
+
+/* ---------- footer, bars, menu ---------- */
+.finale { background: var(--ribbon); }
+.footer { background: var(--pnavy-deep); }
+.footer-org { font-family: var(--fp); font-weight: 900; letter-spacing: -.02em; font-size: clamp(1.6rem, 6.4vw, 3rem); }
+.footer-phone a { font-family: var(--fp); font-weight: 900; }
+.bottombar { background: var(--pnavy-deep); }
+.menu { background: var(--pnavy); }
+.menu nav a { font-family: var(--fp); font-weight: 900; letter-spacing: -.02em; font-size: clamp(2rem, 9.6vw, 3.6rem); }
+
+@media (min-width: 768px) {
+  .facts { grid-template-columns: 1fr 1fr; }
+  .fact--dates { grid-column: 1 / -1; }
+  .fact--time + .fact--time { border-top: 0; padding-left: 18px; border-left: 1px solid rgba(29, 43, 91, .2); }
+}
+
+/* ---------- PC ---------- */
+@media (min-width: 1024px) {
+  .church-badge { width: 70px; height: 70px; }
+  .wordmark { font-size: 2rem; }
+  .ticker-run { font-size: 2.3rem; }
+  .console { padding-top: 40px; }
+  .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(400px, 1fr); }
+  .ct-big { font-size: clamp(4rem, 8vw, 9rem); }
+  .ct-the { font-size: clamp(1.5rem, 2.66vw, 3rem); }
+  .fact--dates .fact-big { font-size: clamp(2rem, 2.9vw, 3rem); }
+  .fact--time .fact-big { font-size: clamp(1.5rem, 2.1vw, 2.2rem); }
+  .live { padding: 30px; margin-right: 12px; box-shadow: 14px 14px 0 0 var(--porange); }
+  .state-word { font-size: clamp(2rem, 2.5vw, 3rem); }
+  .row-title { font-size: 1.75rem; }
+  .follow-link { font-size: 2.6rem; }
+}
+
+/* ---------- test clock: impossible to miss, one tap back to the real time ---------- */
+.console > .test-flag {
+  position: fixed; z-index: 80; top: auto; left: 12px; right: 12px; height: auto; bottom: calc(76px + env(safe-area-inset-bottom));
+  display: block; padding: 10px 14px; border: 0; text-align: center; text-decoration: none;
+  background: var(--pred); color: #fff; font: 800 .9375rem/1.3 var(--fp);
+}
+@media (min-width: 1024px) {
+  .console > .test-flag { left: auto; right: 20px; bottom: 20px; max-width: 520px; margin: 0; }
+}
+
+/* ---------- today: the date number and weekday turn red ---------- */
+.day-group.is-today .dd-num, .day-group.is-today .dd-wd { color: var(--pred); }
+
+/* ---------- completed days: a purple cover with the word on top ---------- */
+.day-group { position: relative; }
+.day-done {
+  position: absolute; inset: 0; z-index: 1; display: none;
+  flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center;
+  background: rgba(110, 52, 146, .9); color: #fff; padding: 16px;
+}
+.day-group.is-past .day-done { display: flex; animation: coverIn .6s var(--ease); }
+@keyframes coverIn { from { opacity: 0; } to { opacity: 1; } }
+.day-done-big { font: 900 clamp(1.8rem, 7vw, 3.4rem)/1 var(--fp); text-transform: uppercase; letter-spacing: .04em; }
+.day-done-big::before { content: ""; display: inline-block; width: .5em; height: .28em; margin: 0 .3em .18em 0; border: solid currentColor; border-width: 0 0 .1em .1em; transform: rotate(-45deg); }
+.day-done-small { font: 400 clamp(1.4rem, 4.6vw, 2.2rem)/1.1 var(--fs); color: var(--yellow); }
+/* keep the date readable above the cover so people still know which day it was */
+.day-group.is-past .day-title { position: relative; z-index: 2; color: #fff; }
+.day-group.is-past .dd-num, .day-group.is-past .dd-wd { color: #fff; }
+.day-group.is-past .dd-mo { color: #f0e6f7; }
+.day-group.is-past .cal-btn { visibility: hidden; }
+.day-group.is-past .day-done { padding-top: 90px; }
+
+/* ---------- finale: the cross photo under a purple veil ---------- */
+.finale { background: var(--ribbon); }
+.finale-mark { position: sticky; top: 0; isolation: isolate; align-items: flex-start; }
+.finale-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 28% 45%; z-index: -2; }
+.finale-mark::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(180deg, rgba(110, 52, 146, .84) 0%, rgba(90, 40, 125, .86) 55%, rgba(47, 26, 54, .92) 100%);
+}
+.finale-content {
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+  padding: 16vh var(--pad) 0; color: #fff;
+}
+.finale-mark .finale-logo { width: 84px; height: 84px; max-width: none; transform: none; color: #fff; }
+.finale-title { font: 900 clamp(2.6rem, 12vw, 8rem)/.9 var(--fp); text-transform: uppercase; letter-spacing: -.035em; }
+.finale-theme { font: 800 clamp(1rem, 3.6vw, 1.7rem)/1.2 var(--fp); text-transform: uppercase; letter-spacing: .14em; }
+.finale-dates { font: 400 clamp(1.8rem, 6vw, 3rem)/1.1 var(--fs); color: var(--yellow); }
+@media (min-width: 1024px) {
+  .finale-content { padding-top: 14vh; }
+  .finale-mark .finale-logo { width: 110px; height: 110px; }
+}
+
+/* ---------- goodbye view: after the last session on Sunday ---------- */
+.kicker-thanks { display: none; font: 800 clamp(.75rem, 3vw, 1.05rem)/1.3 var(--fp); letter-spacing: .32em; text-transform: uppercase; }
+body[data-state="EVENT_ENDED"] .kicker-welcome { display: none; }
+body[data-state="EVENT_ENDED"] .kicker-thanks { display: block; }
+body[data-state="EVENT_ENDED"] .fact--time { display: none; }
+body[data-state="EVENT_ENDED"] .fact--dates { border-bottom: 0; }
+
+.closing {
+  position: relative; margin: 30px 10px 0 0; padding: 26px 22px;
+  background: #fff; border-top: 6px solid var(--pred); box-shadow: 10px 10px 0 0 var(--pnavy);
+  grid-template-columns: 1fr; justify-items: start;
+}
+.closing-logo { width: 96px; height: 96px; }
+.closing-bless { font: 400 clamp(2.4rem, 9vw, 4rem)/1 var(--fs); color: var(--pred); }
+.closing-verse p { font-size: clamp(1.25rem, 5vw, 2rem); line-height: 1.3; color: var(--ink); }
+.closing-verse cite { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+.closing-actions .btn { min-height: 52px; font-size: 1.0625rem; }
+.closing-actions .btn--line { border-color: var(--pnavy); }
+
+@media (min-width: 1024px) {
+  .closing {
+    grid-template-columns: 170px minmax(0, 1fr) auto; align-items: center; column-gap: 40px; row-gap: 10px;
+    padding: 34px 40px; margin-top: 40px; max-width: none; box-shadow: 14px 14px 0 0 var(--pnavy);
+  }
+  .closing-logo { grid-row: 1 / span 2; grid-column: 1; width: 170px; height: 170px; }
+  .closing-bless { grid-column: 2; grid-row: 1; }
+  .closing-verse { grid-column: 2; grid-row: 2; }
+  .closing-actions { grid-column: 3; grid-row: 1 / span 2; flex-direction: column; align-items: stretch; }
+}
+
+/* ---------- footer centred on phones and small tablets ---------- */
+@media (max-width: 767px) {
+  .footer { justify-items: center; text-align: center; }
+  .footer-logo { margin: 0 auto; }
+  .footer-org { margin-inline: auto; }
+  .footer-links { justify-content: center; }
+  .footer-body .btn { margin-inline: auto; }
+  .mini--footer { justify-items: center; width: 100%; max-width: 420px; }
+  .mini--footer .mini-digits { justify-content: center; }
+  .mini--footer .mini-meter { width: 100%; }
+}
+
+/* ---------- 404 on paper ---------- */
+.nf-mark { color: var(--pnavy); }
+.nf .section-title { color: var(--pnavy); }
