@@ -9,7 +9,7 @@ Original font note: Anton is a tall, heavy poster face that lets one word fill a
 
 ## Edit the details
 
-Open `public/config.js` in any text editor (Notepad is fine). Everything you may change is there: session times, venue text, map link, coordinates, phone number, YouTube and TikTok links, live-stream link, notice banner, charge start date, speaker names, titles and photo paths. Keep the quotes and commas. Times must keep `+03:00`.
+Open `public/config.js` in any text editor (Notepad is fine). Everything you may change is there: session times, venue text, map link, coordinates, phone number, YouTube, TikTok and Facebook links, live-stream link, notice banner, charge start date, speaker names, titles and photo paths. Keep the quotes and commas. Times must keep `+03:00`.
 
 - **Live button:** paste the link into `livestreamUrl`. It appears only during sessions.
 - **Last-minute notice:** type it into `notice` (one text per language). Empty hides it.

@@ -61,6 +61,10 @@ function fillFacts() {
   $$(".js-phone").forEach((el) => (el.textContent = config.contact.phoneDisplay));
   $$(".js-yt").forEach((a) => (a.href = config.social.youtube));
   $$(".js-tt").forEach((a) => (a.href = config.social.tiktok));
+  $$(".js-fb").forEach((a) => {
+    a.href = config.social.facebook || "#";
+    a.hidden = !config.social.facebook;
+  });
   $$(".js-maps").forEach((a) => (a.href = config.venue.mapUrl));
   $$(".js-dates").forEach((el) => (el.textContent = datesRange(sch)));
   const first = sch.days[0];

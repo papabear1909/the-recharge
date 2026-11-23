@@ -84,13 +84,15 @@ ok.push(`offline list: ${pre.length} entries exist`);
 const want = {
   youtube: "https://youtube.com/@jesushealingcentrechurchke5930",
   tiktok: "https://www.tiktok.com/@migwi_evangelism",
+  facebook: "https://www.facebook.com/profile.php?id=100064456285956",
   map: "https://www.google.com/maps/place/Jesus+Healing+Centre+Church+Headquarters/data=!4m2!3m1!1s0x0:0x29a17d93d224dacd?sa=X&ved=1t:2428&ictx=111",
 };
 if (config.social.youtube !== want.youtube) fail("YouTube link changed");
 if (config.social.tiktok !== want.tiktok) fail("TikTok link changed");
+if (config.social.facebook !== want.facebook) fail("Facebook link changed");
 if (config.venue.mapUrl !== want.map) fail("Map link changed");
 if (config.contact.phoneIntl !== "+254723545922") fail("phone changed");
-ok.push("links: YouTube, TikTok, map and phone match the brief");
+ok.push("links: YouTube, TikTok, Facebook, map and phone match what was given");
 
 // 7. no third-party requests from the page itself
 const third = [...html.matchAll(/(?:src|href)="(https?:[^"]+)"/g)].map((m) => m[1]);

@@ -81,6 +81,8 @@ export default {
   social: {
     youtube: "https://youtube.com/@jesushealingcentrechurchke5930",
     tiktok: "https://www.tiktok.com/@migwi_evangelism",
+    // Leave any of these "" to hide that link everywhere on the site.
+    facebook: "https://www.facebook.com/profile.php?id=100064456285956",
   },
 
   // PLACEHOLDER: paste the live-stream link here (for example a YouTube live link).
